@@ -274,6 +274,11 @@
 							<li><a href="{{route('vendor_type.index')}}">Vendor Type</a></li>	
 							<li><a href="{{route('vendor.index')}}">Vendors</a></li>
 							<li><a href="{{route('category.index')}}">Category</a></li>	
+							<li><a href="{{route('item.index')}}">Item</a></li>	
+							<li><a href="{{route('tag.index')}}">Tag</a></li>	
+							<li><a href="{{route('item_tag.index')}}">Item Tag</a></li>	
+								<li><a href="{{route('promotion.index')}}">Promotions</a></li>	
+							
 							
 							
 

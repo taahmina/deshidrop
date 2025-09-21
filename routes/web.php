@@ -5,6 +5,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VendorTypeController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\ItemTagController;
+use App\Http\Controllers\PromotionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +28,11 @@ Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard')
  Route:: resource('category',CategoryController::class);
   Route:: resource('vendor_type',VendorTypeController::class);
    Route:: resource('vendor',VendorController::class);
+    Route:: resource('item',ItemController::class);
+     Route:: resource('tag',TagController::class);
+       Route:: resource('item_tag',ItemTagController::class);
+        Route:: resource('promotion',PromotionController::class);
+
 
 
 

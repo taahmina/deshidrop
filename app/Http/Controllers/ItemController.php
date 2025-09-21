@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Item;
+use App\Models\Vendor;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -12,8 +16,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-           $data=item::get();
+         $data=Item::get();
         return view('item.index',compact('data'));
+
     }
 
     /**
@@ -21,7 +26,11 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('item.create'); 
+        $ven=Vendor::orderBy('name')->get();
+        $cat=Category::orderBy('name')->get();
+        $ta=Tag::orderBy('name')->get();
+         
+        return view('item.create',compact('ven','cat','ta'));
     }
 
     /**
@@ -29,9 +38,12 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-         Item::create($request->all());
-      return redirect()->route('item.index');
+        $item=Item::create($request->all());
+        if($request->has('tag_id'))
+            $item->tags()->attach($request->tag_id);
+        return redirect()->route('item.index');
     }
+
     /**
      * Display the specified resource.
      */
@@ -45,7 +57,10 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        return view('item.edit',compact('item'));
+         $ven=Vendor::orderBy('name')->get();
+         $cat=Category::orderBy('name')->get();
+        $ta=Tag::orderBy('name')->get();
+        return view('item.edit',compact('item','ven','cat','ta'));
     }
 
     /**
@@ -53,8 +68,10 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-         $item->update($request->all());
-      return redirect()->route('item.index');
+          $item->update($request->all());
+          if($request->has('tag_id'))
+            $item->tags()->sync($request->tag_id);
+        return redirect()->route('item.index');
     }
 
     /**
@@ -63,6 +80,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
          $item->delete();
-      return redirect()->route('item.index');
+        return redirect()->route('item.index');
     }
 }

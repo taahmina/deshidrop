@@ -14,17 +14,7 @@
 							</div>
 						</div>
 
-						<div class="form-group row">
-							<label for="type" class="col-sm-12 col-md-2 col-form-label">Select</label>
-							<div class="col-sm-12 col-md-10">
-								<select class="custom-select col-12"  name="type" id="type" , value="{{$category->type}}">
-									<option selected="">Select Type...</option>
-									<option value="restaurant">Restaurant</option>
-									<option value="shop">shop</option>
-								
-								</select>
-							</div>
-						</div>
+						
             <div>
         <button type="submit" class="btn btn-primary">Update</button>
       </div>

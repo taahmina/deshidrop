@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('vendor_id')->nullable();
             $table->string('category_id')->nullable();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-             $table->string('status')->nullable();
-            $table->integer('price')->nullable();
-            $table->integer('stock_qty')->nullable();
-            $table->integer('weight')->nullable();
+            $table->string('weight')->nullable();
+            $table->text('price')->nullable();
+            $table->string('stock')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
-            
         });
     }
 
