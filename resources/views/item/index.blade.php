@@ -44,11 +44,11 @@
 						<td>{{$d->stock}}</td>
 						<td>{{$d->status}}</td>
 						<td>{{$d->tags->count()>0?implode(',',$d->tags->pluck('name')->toArray()) : ""}}</td>
-						<td><img width="80px" src="{{asset('uploads/'.$d->image)}}" alt=""></td>
-						
+						<td><img width="80px" src="{{asset('uploads/items/'.$d->image)}}" alt=""></td>
+
 						<td>
 							<ul class="d-flex ">
-							
+
 								<li class="mr-3"><a href="{{route('item.edit',$d->id)}}" class="btn btn-link"><i class="fa fa-edit"></i></a></li>
 								<li>
 									<form method="post" action="{{route('item.destroy',$d->id)}}">
