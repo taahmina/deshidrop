@@ -27,6 +27,7 @@
 					<th scope="col">Stock</th>
 					<th scope="col">Status</th>
 					<th scope="col">Tags</th>
+					<th scope="col">Image</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
@@ -43,6 +44,7 @@
 						<td>{{$d->stock}}</td>
 						<td>{{$d->status}}</td>
 						<td>{{$d->tags->count()>0?implode(',',$d->tags->pluck('name')->toArray()) : ""}}</td>
+						<td><img width="80px" src="{{asset('uploads/'.$d->image)}}" alt=""></td>
 						
 						<td>
 							<ul class="d-flex ">

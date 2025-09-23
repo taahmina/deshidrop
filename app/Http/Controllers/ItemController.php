@@ -36,13 +36,26 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+   
+   
     public function store(Request $request)
     {
-        $item=Item::create($request->all());
-        if($request->has('tag_id'))
+        $input = $request->all();
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+
+            $request->image->move(public_path('uploads/items'), $imageName);
+            $input['image'] = 'uploads/items/' . $imageName;
+        }
+
+        $item = Item::create($input);
+        if ($request->has('tag_id')) {
             $item->tags()->attach($request->tag_id);
-        return redirect()->route('item.index');
+        }
+
+    return redirect()->route('item.index')->with('success', 'Item created successfully');
     }
+
 
     /**
      * Display the specified resource.
@@ -66,13 +79,32 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+
     public function update(Request $request, Item $item)
     {
-          $item->update($request->all());
-          if($request->has('tag_id'))
+        $input = $request->except('image');
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('uploads/items'), $imageName);
+            $input['image'] = 'uploads/items/' . $imageName;
+
+            if ($item->image && file_exists(public_path($item->image))) {
+                unlink(public_path($item->image));
+            }
+        }
+
+        $item->update($input);
+
+        if ($request->has('tag_id')) {
             $item->tags()->sync($request->tag_id);
-        return redirect()->route('item.index');
+        }
+
+        return redirect()->route('item.index')->with('success', 'Item updated successfully');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

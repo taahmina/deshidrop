@@ -13,10 +13,10 @@
 						</div>
 						
 					</div>
-						<form action="{{route('item.update',$item->id)}}" method="post">
-@csrf
-@method('PATCH')
-						<div class="row">
+						<form action="{{route('item.update',$item->id)}}" method="post" enctype="multipart/form-data">
+						@csrf
+						@method('PATCH')
+					<div class="row">
 							<div class="col-md-4 col-sm-12">
 								<div class="form-group">
 									<label  for="vendor_id" >vendor_id</label>
@@ -32,9 +32,9 @@
 							</div>
 							<div class="col-md-4 col-sm-12">
 								<div class="form-group">
-									<label  for="vendor_id" >vendor_id</label>
-									<select name="vendor_id" id="vendor_id" class="form-control">
-										<option value="">Select Vendor</option>
+									<label  for="category_id" >category_id</label>
+									<select name="category_id" id="category_id" class="form-control">
+										<option value="">Select category</option>
 										@forelse ($cat as $c)
 											<option {{old('category_id',$item->category_id)==$c->id?"selected":""}} value="{{$c->id}}">{{$c->name}}</option>
 										@empty
@@ -77,6 +77,7 @@
 								</div>
 							</div>
 							
+							
 							<div class="col-md-3 col-sm-12">
 								<div class="form-group">
 								<label for="status">Status</label>
@@ -100,6 +101,13 @@
 
 										@endforelse
 									</select>
+								</div>
+							</div>
+
+							<div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="image">Image</label>
+									<input type="file" name="image" id="image" class="form-control" value="{{$item->image}}">
 								</div>
 							</div>
 							

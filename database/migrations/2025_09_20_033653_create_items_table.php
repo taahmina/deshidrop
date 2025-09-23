@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('price')->nullable();
             $table->string('stock')->nullable();
             $table->string('status')->nullable();
+            $table->string('tag_id')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

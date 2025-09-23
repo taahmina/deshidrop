@@ -14,7 +14,7 @@
 						</div>
 						
 					</div>
-						<form action="{{route('item.store')}}" method="post"> 
+						<form action="{{route('item.store')}}" method="post" enctype="multipart/form-data"> 
 					       @csrf
 						<div class="row">
 							<div class="col-md-4 col-sm-12">
@@ -101,6 +101,13 @@
 
 										@endforelse
 									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="image">Image</label>
+									<input type="file" name="image" id="image" accept="image/*" class="form-control">
+									  
 								</div>
 							</div>
 							

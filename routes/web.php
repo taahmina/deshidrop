@@ -9,6 +9,20 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ItemTagController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\GpsLogController;
+use App\Http\Controllers\DelivaryPersonController;
+use App\Http\Controllers\DelivaryZoneController;
+use App\Http\Controllers\DelivaryRuleController;
+use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\NotificationController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,13 +39,27 @@ Route::get('/', function () {
 });
 Route::middleware('auth:web')->group(function(){
 Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
- Route:: resource('category',CategoryController::class);
-  Route:: resource('vendor_type',VendorTypeController::class);
-   Route:: resource('vendor',VendorController::class);
-    Route:: resource('item',ItemController::class);
-     Route:: resource('tag',TagController::class);
-       Route:: resource('item_tag',ItemTagController::class);
-        Route:: resource('promotion',PromotionController::class);
+Route:: resource('category',CategoryController::class);
+Route:: resource('vendor_type',VendorTypeController::class);
+Route:: resource('vendor',VendorController::class);
+Route:: resource('item',ItemController::class);
+Route:: resource('tag',TagController::class);
+Route:: resource('item_tag',ItemTagController::class);
+Route:: resource('promotion',PromotionController::class);
+Route:: resource('order',OrderController::class);
+Route:: resource('review',ReviewController::class);
+Route:: resource('gpslog',GpsLogController::class);
+Route:: resource('delivary_people',DelivaryPersonController::class);
+Route:: resource('delivary_zone',DelivaryZoneController::class);
+Route:: resource('delivary_rule',DelivaryRuleController::class);
+Route:: resource('delivary_rule',OrderItemController::class);
+Route:: resource('payment',PaymentController::class);
+Route:: resource('transaction',TransactionController::class);
+Route:: resource('notification',NotificationController::class);
+
+
+
+
 
 
 
