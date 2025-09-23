@@ -29,15 +29,15 @@ class ItemController extends Controller
         $ven=Vendor::orderBy('name')->get();
         $cat=Category::orderBy('name')->get();
         $ta=Tag::orderBy('name')->get();
-         
+
         return view('item.create',compact('ven','cat','ta'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-   
-   
+
+
     public function store(Request $request)
     {
         $input = $request->all();
@@ -45,7 +45,7 @@ class ItemController extends Controller
             $imageName = time() . '.' . $request->image->extension();
 
             $request->image->move(public_path('uploads/items'), $imageName);
-            $input['image'] = 'uploads/items/' . $imageName;
+            $input['image'] = 'items/' . $imageName;
         }
 
         $item = Item::create($input);
@@ -88,7 +88,7 @@ class ItemController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/items'), $imageName);
-            $input['image'] = 'uploads/items/' . $imageName;
+            $input['image'] = 'items/' . $imageName;
 
             if ($item->image && file_exists(public_path($item->image))) {
                 unlink(public_path($item->image));

@@ -1,19 +1,13 @@
-
-
 @extends('layouts.backend')
 @section('page_title',"Vendor Add")
-@section('content')  
- 
-
-						<div class="pd-20 card-box mb-30">
-					<div class="clearfix">
-						<div class="pull-left">
-							<h4 class="text-blue h4">Vendor Edit</h4>
-							
-						</div>
-						
-					</div>
-						<form action="{{route('item.update',$item->id)}}" method="post" enctype="multipart/form-data">
+@section('content')
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Vendor Edit</h4>
+        </div>
+    </div>
+    <form action="{{route('item.update',$item->id)}}" method="post" enctype="multipart/form-data">
 						@csrf
 						@method('PATCH')
 					<div class="row">
@@ -76,8 +70,8 @@
 									<input type="text" name="stock" id="stock" class="form-control" value="{{$item->stock}}">
 								</div>
 							</div>
-							
-							
+
+
 							<div class="col-md-3 col-sm-12">
 								<div class="form-group">
 								<label for="status">Status</label>
@@ -85,7 +79,7 @@
 									<option selected="">Select Type...</option>
 									<option value="approved">Approved</option>
 									<option value="pending">Pending</option>
-								
+
 								</select>
 
 								</div>
@@ -110,7 +104,7 @@
 									<input type="file" name="image" id="image" class="form-control" value="{{$item->image}}">
 								</div>
 							</div>
-							
+
 						</div>
 
 
@@ -125,4 +119,3 @@
 
 
 
-						
