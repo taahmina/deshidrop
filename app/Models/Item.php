@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
-      protected $fillable = ['vendor_id','category_id','name','description','weight','price','stock','status','tag_id','image'];
+      protected $fillable = ['vendor_id','category_id','name','description','weight','price','stock','status','tag_id','image','is_featured','is_active'];
 
       public function vendor(){
         return $this->belongsTo(Vendor::class);

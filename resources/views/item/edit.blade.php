@@ -105,6 +105,24 @@
 								</div>
 							</div>
 
+							<div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="is_featured">Is_Featured</label>
+									<select name="is_featured" id="is_featured" class="form-control" value="{{$item->is_featured}}">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>					
+								</div>
+							</div>
+	                            <div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="is_active">Is_Active</label>
+									<select name="is_active" id="is_active" class="form-control" value="{{$item->is_active}}">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>		
+								</div>
+							</div>
 						</div>
 
 

@@ -93,7 +93,7 @@
 							<div class="col-md-4 col-sm-12">
 								<div class="form-group">
 									<label  for="tag_id" >Tag</label>
-									<select name="tag_id[]" id="tag_id" class="form-control" multiple>
+									<select name="tag_id" id="tag_id" class="form-control">
 										<option value="">Select Tag</option>
 										@forelse ($ta as $t)
 											<option value="{{$t->id}}">{{$t->name}}</option>
@@ -110,6 +110,26 @@
 									  
 								</div>
 							</div>
+
+							<div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="is_featured">Is_Featured</label>
+									<select name="is_featured" id="is_featured" class="form-control">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>					
+								</div>
+							</div>
+	                            <div class="col-md-3 col-sm-12">
+								<div class="form-group">
+									<label for="is_active">Is_Active</label>
+									<select name="is_active" id="is_active" class="form-control">
+										<option value="0">No</option>
+										<option value="1">Yes</option>
+									</select>		
+								</div>
+							</div>
+
 							
 						</div>
 

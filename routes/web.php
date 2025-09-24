@@ -19,6 +19,8 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\FrontendController  as front;
+use  App\Http\Controllers\CartController;
 
 
 
@@ -33,10 +35,7 @@ use App\Http\Controllers\NotificationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[front::class,'home'])->name ('home');
 Route::middleware('auth:web')->group(function(){
 Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route:: resource('category',CategoryController::class);
@@ -56,6 +55,12 @@ Route:: resource('delivary_rule',OrderItemController::class);
 Route:: resource('payment',PaymentController::class);
 Route:: resource('transaction',TransactionController::class);
 Route:: resource('notification',NotificationController::class);
+
+Route::get('cart',[CartController::class,'viewCart'])->name('cart.view');
+Route::post('cart/add',[CartController::class,'addToCart'])->name('cart.add');
+Route::post('cart/update',[CartController::class,'updateCart'])->name('cart.update');
+Route::get('cart/remove/{id}',[CartController::class,'removeFromCart'])->name('cart.remove');
+
 
 
 

@@ -106,55 +106,37 @@
                                 </div>
                             </div>
                                 <div class="row remove-ext5">
+                                      @forelse ($feature_item as $item)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
                                         <div class="popular-dish-box wow fadeIn" data-wow-delay="0.2s">
                                             <div class="popular-dish-thumb">
-                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{asset('assets/images/resource/popular-dish-img1.jpg')}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
-                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
-                                                <span class="post-likes brd-rd4"><i class="fa fa-heart-o"></i> 12</span>
+                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{asset('uploads/'.$item->image)}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> {{$item->tags->count()>0?implode(',',$item->tags->pluck('name')->toArray()) : ""}}</span>
+                                                <span class="post-likes brd-rd4"><i class="fa fa-heart-o"></i> </span>
                                             </div>
                                             <div class="popular-dish-info">
                                                 <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">
-													Maenaam Thai Restaurant</a>
+													 {{$item->name}}</a>
 												</h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                                <span class="price">$85.00</span>
-                                                <a class="brd-rd2" href="food-detail.html" title="Order Now" itemprop="url">Order Now</a>
+                                                <p itemprop="description">{{$item->description}}</p>
+                                                <span class="price"> {{$item->price}}</span>
+                                                <a class="brd-rd2" href="javascript:void(0)" onclick="addToCart({{$item->id}})" title="Order Now" itemprop="url"> Order Now</a>
                                                 <div class="restaurant-info">
                                                     <img src="assets/images/resource/restaurant-logo1.png" alt="restaurant-logo1.png" itemprop="image">
                                                     <div class="restaurant-info-inner">
-                                                        <h6 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Fabio al Porto Ristorante</a></h6>
-                                                        <span class="red-clr">5th Avenue New York 68</span>
+                                                        <h6 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url"> {{$item->vendor?->name}}</a></h6>
+                                                        <span class="red-clr">  {{$item->category?->name}}</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- Popular Dish Box -->
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="popular-dish-box wow fadeIn" data-wow-delay="0.4s">
-                                            <div class="popular-dish-thumb">
-                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{asset('assets/images/resource/popular-dish-img2.jpg')}}" alt="popular-dish-img2.jpg" itemprop="image"></a>
-                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 3.25</span>
-                                                <span class="post-likes brd-rd4"><i class="fa fa-heart-o"></i> 10</span>
-                                            </div>
-                                            <div class="popular-dish-info">
-                                                <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">
-													Champignon somen Noodles</a>
-												</h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                                <span class="price">$70.00</span>
-                                                <a class="brd-rd2" href="food-detail.html" title="Order Now" itemprop="url">Order Now</a>
-                                                <div class="restaurant-info">
-                                                    <img src="assets/images/resource/restaurant-logo1.png" alt="restaurant-logo2.png" itemprop="image">
-                                                    <div class="restaurant-info-inner">
-                                                        <h6 itemprop="headline"><a href="restaurant-detail.html" title="" itemprop="url">Fabio al Porto Ristorante</a></h6>
-                                                        <span class="red-clr">5th Avenue New York 68</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- Popular Dish Box -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
+                                      @empty
+
+                                 @endforelse
+
+                                    
+                                    <!--<div class="col-md-4 col-sm-6 col-lg-4">
                                         <div class="popular-dish-box wow fadeIn" data-wow-delay="0.6s">
                                             <div class="popular-dish-thumb">
                                                 <a href="food-detail.html" title="" itemprop="url"><img src="{{asset('assets/images/resource/popular-dish-img3.jpg')}}" alt="popular-dish-img3.jpg')}}" itemprop="image"></a>
@@ -175,9 +157,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- Popular Dish Box -->
-                                    </div>
-                                </div>
+                                        </div>  
+                                    </div> Popular Dish Box -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -701,5 +683,31 @@
             </div>
         </section><!-- red section -->
 @endsection
+@push('scripts')
+    <script>
+        function addToCart(itemId) {
+            // Implement the logic to add the product to the cart
+            // You might want to make an AJAX request to your server here
+            fetch("{{ route('cart.add') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({ item_id: itemId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                //console.log('Success:', data);
+                alert('Item added to cart!');
+            })
+            .catch((error) => {
+                //console.error('Error:', error);
+                alert('Failed to add item to cart.');
+            });
+
+        }
+    </script>
+@endpush
 
         

@@ -28,6 +28,8 @@
 					<th scope="col">Status</th>
 					<th scope="col">Tags</th>
 					<th scope="col">Image</th>
+					<th scope="col">Is_Featured</th>
+					<th scope="col">Is_Active</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
@@ -45,6 +47,8 @@
 						<td>{{$d->status}}</td>
 						<td>{{$d->tags->count()>0?implode(',',$d->tags->pluck('name')->toArray()) : ""}}</td>
 						<td><img width="80px" src="{{asset('uploads/'.$d->image)}}" alt=""></td>
+						<td>{{$d->is_featured}}</td>
+						<td>{{$d->is_active}}</td>
 
 						<td>
 							<ul class="d-flex ">
