@@ -21,6 +21,8 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FrontendController  as front;
 use  App\Http\Controllers\CartController;
+use  App\Http\Controllers\CheckoutController;
+use  App\Http\Controllers\CouponController;
 
 
 
@@ -45,6 +47,7 @@ Route:: resource('item',ItemController::class);
 Route:: resource('tag',TagController::class);
 Route:: resource('item_tag',ItemTagController::class);
 Route:: resource('promotion',PromotionController::class);
+Route::resource('coupon', CouponController::class);
 Route:: resource('order',OrderController::class);
 Route:: resource('review',ReviewController::class);
 Route:: resource('gpslog',GpsLogController::class);
@@ -60,7 +63,9 @@ Route::get('cart',[CartController::class,'viewCart'])->name('cart.view');
 Route::post('cart/add',[CartController::class,'addToCart'])->name('cart.add');
 Route::post('cart/update',[CartController::class,'updateCart'])->name('cart.update');
 Route::get('cart/remove/{id}',[CartController::class,'removeFromCart'])->name('cart.remove');
-
+Route::post('cart/check_coupon',[CartController::class,'checkCoupon'])->name('cart.check_coupon');
+Route::get('checkout',[CheckoutController::class,'checkout'])->name('checkout');
+Route::post('checkout/place_order',[CheckoutController::class,'placeOrder'])->name('checkout.place_order');
 
 
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('vendor_id')->nullable();
+        
             $table->decimal('total_amount',10,2)->nullable();
             $table->decimal('vat',10,2)->nullable();
             $table->decimal('discount_price',10,2)->nullable();

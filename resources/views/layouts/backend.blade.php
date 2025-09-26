@@ -275,7 +275,10 @@
 							<li><a href="{{route('vendor.index')}}">Vendors</a></li>
 							<li><a href="{{route('category.index')}}">Category</a></li>	
 							<li><a href="{{route('item.index')}}">Item</a></li>	
-							<li><a href="{{route('tag.index')}}">Tag</a></li>	
+							<li><a href="{{route('tag.index')}}">Tag</a></li>
+							<li><a href="{{route('coupon.index')}}">Coupon</a></li>	
+							
+							<li><a href="{{route('order.index')}}">Order Item</a></li>	
 							
 								<li><a href="{{route('promotion.index')}}">Promotions</a></li>	
 							
