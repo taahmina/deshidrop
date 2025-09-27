@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('page_title',"Cart")
 
 @section('content')
 
@@ -129,7 +130,7 @@
                 'X-CSRF-TOKEN': token
             },
             body: JSON.stringify({
-                product_id: id,
+                item_id: id,
                 action: action
             })
         }).then(response => response.json())

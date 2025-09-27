@@ -46,8 +46,9 @@ class CartController extends Controller
             $cart[$item->id]['quantity']++;
         }
         session::put('cart', $cart);
-        // if($cart[$product->id]['quantity'] <= 0) {
-        //     unset($cart[$product->id]);
+        session::forget('coupon');
+        // if($cart[$item->id]['quantity'] <= 0) {
+        //     unset($cart[$item->id]);
         //     session::put('cart', $cart);
         //     return response()->json(['message' => 'Product removed from cart successfully']);
         // }

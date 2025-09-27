@@ -107,7 +107,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Product</th>
+                                <th scope="col">Item</th>
                                 <th scope="col"></th>
                                 <th scope="col">Total</th>
                             </tr>

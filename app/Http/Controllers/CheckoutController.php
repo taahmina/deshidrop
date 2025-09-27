@@ -98,7 +98,7 @@ class CheckoutController extends Controller
         Session::forget('cart');
         Session::forget('coupon');
 
-        return redirect()->route('welcome')->with('success', 'Order placed successfully!');
+        return redirect()->route('home')->with('success', 'Order placed successfully!');
         } catch (\Throwable $th) {
            // dd($th);
             throw $th;

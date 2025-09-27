@@ -278,9 +278,9 @@
 							<li><a href="{{route('tag.index')}}">Tag</a></li>
 							<li><a href="{{route('coupon.index')}}">Coupon</a></li>	
 							
-							<li><a href="{{route('order.index')}}">Order Item</a></li>	
+							<li><a href="{{route('order.index')}}">Order item</a></li>	
 							
-								<li><a href="{{route('promotion.index')}}">Promotions</a></li>	
+								
 							
 							
 							

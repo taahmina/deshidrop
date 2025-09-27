@@ -37,43 +37,37 @@ use  App\Http\Controllers\CouponController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[front::class,'home'])->name ('home');
+    Route::get('/',[front::class,'home'])->name ('home');
+    
+    Route::get('cart',[CartController::class,'viewCart'])->name('cart.view');
+    Route::post('cart/add',[CartController::class,'addToCart'])->name('cart.add');
+    Route::post('cart/update',[CartController::class,'updateCart'])->name('cart.update');
+    Route::get('cart/remove/{id}',[CartController::class,'removeFromCart'])->name('cart.remove');
+    Route::post('cart/check_coupon',[CartController::class,'checkCoupon'])->name('cart.check_coupon');
+    Route::get('checkout',[CheckoutController::class,'checkout'])->name('checkout');
+    Route::post('checkout/place_order',[CheckoutController::class,'placeOrder'])->name('checkout.place_order');
+
+    //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::middleware('auth:web')->group(function(){
-Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
-Route:: resource('category',CategoryController::class);
-Route:: resource('vendor_type',VendorTypeController::class);
-Route:: resource('vendor',VendorController::class);
-Route:: resource('item',ItemController::class);
-Route:: resource('tag',TagController::class);
-Route:: resource('item_tag',ItemTagController::class);
-Route:: resource('promotion',PromotionController::class);
-Route::resource('coupon', CouponController::class);
-Route:: resource('order',OrderController::class);
-Route:: resource('review',ReviewController::class);
-Route:: resource('gpslog',GpsLogController::class);
-Route:: resource('delivary_people',DelivaryPersonController::class);
-Route:: resource('delivary_zone',DelivaryZoneController::class);
-Route:: resource('delivary_rule',DelivaryRuleController::class);
-Route:: resource('delivary_rule',OrderItemController::class);
-Route:: resource('payment',PaymentController::class);
-Route:: resource('transaction',TransactionController::class);
-Route:: resource('notification',NotificationController::class);
-
-Route::get('cart',[CartController::class,'viewCart'])->name('cart.view');
-Route::post('cart/add',[CartController::class,'addToCart'])->name('cart.add');
-Route::post('cart/update',[CartController::class,'updateCart'])->name('cart.update');
-Route::get('cart/remove/{id}',[CartController::class,'removeFromCart'])->name('cart.remove');
-Route::post('cart/check_coupon',[CartController::class,'checkCoupon'])->name('cart.check_coupon');
-Route::get('checkout',[CheckoutController::class,'checkout'])->name('checkout');
-Route::post('checkout/place_order',[CheckoutController::class,'placeOrder'])->name('checkout.place_order');
-
-
-
-
-
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route:: resource('category',CategoryController::class);
+    Route:: resource('vendor_type',VendorTypeController::class);
+    Route:: resource('vendor',VendorController::class);
+    Route:: resource('item',ItemController::class);
+    Route:: resource('tag',TagController::class);
+    Route:: resource('item_tag',ItemTagController::class);
+    Route:: resource('promotion',PromotionController::class);
+    Route::resource('coupon', CouponController::class);
+    Route:: resource('order',OrderController::class);
+    Route:: resource('review',ReviewController::class);
+    Route:: resource('gpslog',GpsLogController::class);
+    Route:: resource('delivary_people',DelivaryPersonController::class);
+    Route:: resource('delivary_zone',DelivaryZoneController::class);
+    Route:: resource('delivary_rule',DelivaryRuleController::class);
+    Route:: resource('delivary_rule',OrderItemController::class);
+    Route:: resource('payment',PaymentController::class);
+    Route:: resource('transaction',TransactionController::class);
+    Route:: resource('notification',NotificationController::class);
 });
 Auth::routes();

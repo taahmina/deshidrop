@@ -702,7 +702,7 @@
                 alert('Item added to cart!');
             })
             .catch((error) => {
-                //console.error('Error:', error);
+                console.error('Error:', error);
                 alert('Failed to add item to cart.');
             });
 

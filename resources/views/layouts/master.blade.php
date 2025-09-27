@@ -21,24 +21,7 @@
 </head>
 <body itemscope>
     <main>
-        <div class="preloader">
-            <div id="cooking">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div id="area">
-                    <div id="sides">
-                        <div id="pan"></div>
-                        <div id="handle"></div>
-                    </div>
-                    <div id="pancake">
-                        <div id="pastry"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <
         
         <header class="stick">
             <div class="topbar">
@@ -94,12 +77,8 @@
                                         <li><a href="our-services.html" title="RESTAURANT DETAILS" itemprop="url">OUR SERVICES</a></li>
                                     </ul>
                                 </li>
-                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url"><span class="red-clr">FOOD ORDERING</span>SHOPS</a>
-                                    <ul class="sub-dropdown">
-                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
-                                        <li><a href="index2.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
-                                    </ul>
-                                </li>
+
+                                
                                 <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="red-clr">REAL FOOD</span>OFFERS</a>
                                     <ul class="sub-dropdown">
                                         <li class="menu-item-has-children"><a href="#" title="BLOG" itemprop="url">BLOG</a>
@@ -150,9 +129,23 @@
                                         <li><a href="food-detail.html" title="FOOD DETAIL" itemprop="url">FOOD DETAIL</a></li>
                                     </ul>
                                 </li>
+
+
+
+                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url"><span class="red-clr">FOOD ORDERING</span>SHOPS</a>
+                                    <ul class="sub-dropdown">
+                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
+                                        <li><a href="index2.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
+                                    </ul>
+                                </li>
+                               <li class="menu-item-has-children"><a href="{{route('cart.view')}}"  title="CART" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Cart</a> 
+                                </li>
+                                <li class="menu-item-has-children"><a href="{{route('checkout')}}"  title="CHECKOUT" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Checkout</a> 
+                                </li>
                             
                             </ul>
-                            <a class="red-bg brd-rd4" href="register-reservation.html" title="Register" itemprop="url">REGISTER RESTAURANT</a>
+                          
+
                         </div>
                     </nav><!-- Navigation -->
                 </div>
@@ -341,18 +334,7 @@
             </div>
         </div><!-- Bottom Bar -->
 
-        <div class="newsletter-popup-wrapper text-center">
-            <div class="newsletter-popup-inner" style="background-image: url(assets/images/newsletter-bg.jpg);">
-                <a class="close-btn brd-rd50" href="#" title="Close Button" itemprop="url"><i class="fa fa-close"></i></a>
-                <h3 itemprop="headline"><i class="fa fa-envelope-open red-clr"></i> SIGN UP FOR RECENT UPDATES</h3>
-                <p itemprop="description">Join our Subscribers list to get the latest news, updates and special offers delivered directly in your inbox.</p>
-                <form class="newsletter-frm brd-rd30">
-                    <input class="brd-rd30" type="email" placeholder="ENTER YOUR EMAIL">
-                    <button class="brd-rd30 red-bg" type="submit">SUBSCRIBE</button>
-                </form>
-                <span class="red-clr"><i class="fa fa-check"></i> Thanks, your address has been added.</span>
-            </div>
-        </div><!-- Newsletter Popup Wrapper -->
+    
 
         <div class="log-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
@@ -432,6 +414,7 @@
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    @stack('scripts')
 </body>	
 
 </html>
