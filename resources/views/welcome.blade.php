@@ -102,7 +102,7 @@
                             <div class="title1-wrapper text-center">
                                 <div class="title1-inner">
                                     <span>Your Favourite Food</span>
-                                    <h2 itemprop="headline">Choose & Enjoy</h2>
+                                    <h2 itemprop="headline"> Popular This Month</h2>
                                 </div>
                             </div>
                                 <div class="row remove-ext5">
@@ -177,7 +177,7 @@
                                 <div class="title1-wrapper text-center">
 									<div class="title1-inner">
 										<span>Your Favourite Food</span>
-										<h2 itemprop="headline">Popular This Month</h2>
+										<h2 itemprop="headline">Choose & Enjoy</h2>
 										<b>In Your City</b>
 									</div>
 								</div>
