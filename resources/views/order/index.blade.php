@@ -14,6 +14,17 @@
 	<div class="table-responsive">
 		<table class="table">
 			<thead class="table-info">
+                <tr>
+                    <th>#</th>
+                    <th>Customer</th>
+                    <th>Total Price</th>
+                    <th>Discount</th>
+                    <th>Final Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
 					 @forelse($data as $d)
 				<tr>
                      <td scope="row">{{ $loop->iteration }}</td>
