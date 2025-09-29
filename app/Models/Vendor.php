@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Vendor extends Model
 {
     use HasFactory;
-    protected $fillable = ['vendor_type_id','name','description','address','phone','email','latitude','longitude','opening_time','closing_time','status'];
+    protected $fillable = ['vendor_type_id','name','description','address','phone','email','password','latitude','longitude','opening_time','closing_time','status'];
     public function vendor_type(){
         return $this->belongsTo(VendorType::class);
+    }
+    public function items(){
+        return $this->hasMany(Item::class);
     }
 }

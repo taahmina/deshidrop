@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('password')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->time('opening_time')->nullable();
