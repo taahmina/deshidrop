@@ -89,6 +89,7 @@ class CheckoutController extends Controller
                 $orderItem->quantity=$item['quantity'];
                 $orderItem->unit_price=$item['price'];
                 $orderItem->line_total=$item['price'] * $item['quantity'];
+                $orderItem->vendor_id=$item['vendor_id'];
                 $orderItem->save();
             }
         }

@@ -20,6 +20,7 @@ class CartController extends Controller
             'name' => $item->name,
             'price' => $item->discount_price ?? $item->price,
             'quantity' => ($cart[$item->id]['quantity'] ?? 0) + 1,
+            'vendor_id'=>$item->vendor_id
         ];
 
         session::put('cart', $cart);

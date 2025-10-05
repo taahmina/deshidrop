@@ -32,7 +32,9 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        Vendor::create($request->all());
+        $input = $request->all();
+        $input['password']=bcrypt($request->password);
+        Vendor::create($input);
         return redirect()->route('vendor.index');
     }
 

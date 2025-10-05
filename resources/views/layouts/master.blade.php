@@ -9,7 +9,7 @@
     <meta name="keywords" content="" />
     <title>Food Ordering HTML Template</title>
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
-    
+
 
     <link rel="stylesheet" href="{{asset('assets/css/icons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -22,7 +22,7 @@
 <body itemscope>
     <main>
         <
-        
+
         <header class="stick">
             <div class="topbar">
                 <div class="container">
@@ -46,13 +46,14 @@
                     </div>
                     <div class="topbar-register">
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
+                        <a href="{{route('vendor_panel.login')}}" title="Login">Vendor LOGIN</a>
                     </div>
                     <div class="social1">
                         <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
                         <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
                         <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
                     </div>
-                </div>                
+                </div>
             </div><!-- Topbar -->
             <div class="logo-menu-sec">
                 <div class="container">
@@ -78,7 +79,7 @@
                                     </ul>
                                 </li>
 
-                                
+
                                 <li class="menu-item-has-children"><a href="#" title="PAGES" itemprop="url"><span class="red-clr">REAL FOOD</span>OFFERS</a>
                                     <ul class="sub-dropdown">
                                         <li class="menu-item-has-children"><a href="#" title="BLOG" itemprop="url">BLOG</a>
@@ -138,13 +139,13 @@
                                         <li><a href="index2.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
                                     </ul>
                                 </li>
-                               <li class="menu-item-has-children"><a href="{{route('cart.view')}}"  title="CART" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Cart</a> 
+                               <li class="menu-item-has-children"><a href="{{route('cart.view')}}"  title="CART" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Cart</a>
                                 </li>
-                                <li class="menu-item-has-children"><a href="{{route('checkout')}}"  title="CHECKOUT" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Checkout</a> 
+                                <li class="menu-item-has-children"><a href="{{route('checkout')}}"  title="CHECKOUT" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Checkout</a>
                                 </li>
-                            
+
                             </ul>
-                          
+
 
                         </div>
                     </nav><!-- Navigation -->
@@ -334,7 +335,7 @@
             </div>
         </div><!-- Bottom Bar -->
 
-    
+
 
         <div class="log-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
@@ -415,6 +416,6 @@
     <script src="{{asset('assets/js/plugins.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
     @stack('scripts')
-</body>	
+</body>
 
 </html>

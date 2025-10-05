@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->string('coupon_id')->nullable();
+        Schema::table('items', function (Blueprint $table) {
+            // $table->integer('is_featured')->default(1);
+            // $table->integer('is_active')->default(1);
         });
     }
 
@@ -21,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn(['coupon_id']);
+        Schema::table('items', function (Blueprint $table) {
+            $table->dropColumn(['is_featured','is_active']);
         });
     }
 };

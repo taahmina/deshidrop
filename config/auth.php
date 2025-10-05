@@ -43,7 +43,11 @@ return [
 
         'vendor' => [
             'driver' => 'session',
-            'provider' => 'vendor',
+            'provider' => 'vendors',
+        ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
         ],
     ],
 
@@ -69,14 +73,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'vendor' => [
+        'vendors' => [
             'driver' => 'eloquent',
             'model' => App\Models\Vendor::class,
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        ],
+        'customers' => [
+            'driver' => 'database',
+            'table' => App\Models\Customer::class,
+        ],
     ],
 
     /*
@@ -118,6 +122,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout' => 10800
 
 ];

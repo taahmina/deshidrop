@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->bigInteger('vendor_id')->nullable();
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::table('order_items', function (Blueprint $table) {
+            $table->dropColumn(['vendor_id']);
+        });
     }
 };

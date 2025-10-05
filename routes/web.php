@@ -25,6 +25,10 @@ use  App\Http\Controllers\CheckoutController;
 use  App\Http\Controllers\CouponController;
 
 
+/* vendor panle */
+use  App\Http\Controllers\Vendor\VendorAuthController;
+use  App\Http\Controllers\Vendor\VendorItemController;
+
 
 
 /*
@@ -38,7 +42,7 @@ use  App\Http\Controllers\CouponController;
 |
 */
     Route::get('/',[front::class,'home'])->name ('home');
-    
+
     Route::get('cart',[CartController::class,'viewCart'])->name('cart.view');
     Route::post('cart/add',[CartController::class,'addToCart'])->name('cart.add');
     Route::post('cart/update',[CartController::class,'updateCart'])->name('cart.update');
@@ -71,3 +75,14 @@ Route::middleware('auth:web')->group(function(){
     Route:: resource('notification',NotificationController::class);
 });
 Auth::routes();
+
+/* vendor panel */
+
+Route::get('vendor_panel/login',[VendorAuthController::class,'login'])->name('vendor_panel.login');
+Route::post('vendor_panel/login',[VendorAuthController::class,'checkLogin'])->name('vendor_panel.login');
+Route::get('vendor_panel/logout',[VendorAuthController::class,'logout'])->name('vendor_panel.logout');
+Route::middleware('auth:vendor')->group(function () {
+    Route::get('vendor_panel/dashboard',[VendorAuthController::class,'dashboard'])->name('vendor_panel.dashboard');
+    Route::resource('vendor_panel/item', VendorItemController::class, ['as'=>'vendor_panel']);
+    Route::resource('vendor_panel/order', VendororderController::class, ['as'=>'vendor_panel']);
+});
