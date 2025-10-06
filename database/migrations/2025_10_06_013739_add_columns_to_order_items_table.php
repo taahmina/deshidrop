@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('coupon_id');
+              $table->string('product_id')->nullable();
+             
+                 $table->decimal('unit_price',10,2)->nullable();
+                   $table->decimal('line_total',10,2)->nullable();
+                  
+    
         });
     }
 
@@ -22,7 +27,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn(['coupon_id']);
+                  $table->dropColumn('product_id');
+                $table->dropColumn('unit_price');
+                $table->dropColumn('line_total');
         });
     }
 };
