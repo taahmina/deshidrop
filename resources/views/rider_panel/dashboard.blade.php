@@ -1,5 +1,5 @@
-@extends('layouts.vendor_panel')
-@section('page_title',"Vendor Dashboard")
+@extends('layouts.rider_panel')
+@section('page_title',"Rider Dashboard")
 @section('content')
 
 

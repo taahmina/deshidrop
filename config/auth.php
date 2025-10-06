@@ -45,6 +45,12 @@ return [
             'driver' => 'session',
             'provider' => 'vendors',
         ],
+
+        'rider' => [
+            'driver' => 'session',
+            'provider' => 'riders',
+        ],
+
         'customer' => [
             'driver' => 'session',
             'provider' => 'customers',
@@ -76,6 +82,11 @@ return [
         'vendors' => [
             'driver' => 'eloquent',
             'model' => App\Models\Vendor::class,
+
+        ],
+        'riders' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Rider::class,
         ],
         'customers' => [
             'driver' => 'database',
