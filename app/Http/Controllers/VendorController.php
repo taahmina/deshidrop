@@ -60,7 +60,11 @@ class VendorController extends Controller
      */
     public function update(Request $request, Vendor $vendor)
     {
-                 $vendor->update($request->all());
+        $input = $request->all();
+        if($request->password && $request->password != "")
+            $input['password']=bcrypt($request->password);
+
+        $vendor->update($input);
         return redirect()->route('vendor.index');
     }
 
