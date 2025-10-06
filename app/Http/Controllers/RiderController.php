@@ -22,7 +22,8 @@ class RiderController extends Controller
      */
     public function create()
     {
-        //
+        
+          return view('rider.create');
     }
 
     /**
@@ -30,7 +31,11 @@ class RiderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $input = $request->all();
+        $input['password']=bcrypt($request->password);
+        Rider::create($input);
+        return redirect()->route('rider.index');
     }
 
     /**
@@ -38,7 +43,7 @@ class RiderController extends Controller
      */
     public function show(Rider $rider)
     {
-        //
+       
     }
 
     /**
@@ -46,7 +51,7 @@ class RiderController extends Controller
      */
     public function edit(Rider $rider)
     {
-        //
+          return view('rider.edit',compact('rider'));
     }
 
     /**
@@ -54,8 +59,17 @@ class RiderController extends Controller
      */
     public function update(Request $request, Rider $rider)
     {
-         $rider->update($request->all());
+       
+
+        $input = $request->all();
+        if($request->password && $request->password != "")
+            $input['password']=bcrypt($request->password);
+
+        $rider->update($input);
         return redirect()->route('rider.index');
+
+
+
     }
 
     /**

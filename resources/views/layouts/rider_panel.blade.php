@@ -67,13 +67,13 @@
 						<span class="user-icon">
 							<img src="{{asset('vendors/images/photo1.jpg')}}" alt="">
 						</span>
-						<span class="user-name">{{auth()->guard('vendor')->id()}}</span>
+						<span class="user-name">{{auth()->guard('rider')->id()}}</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="{{route('vendor_panel.logout')}}"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="{{route('rider_panel.logout')}}"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
@@ -176,7 +176,7 @@
 						</a>
 					</li>
 					<li class="">
-						<a href="{{route('vendor_panel.item.index')}}">
+						<a href="{{route('rider_panel.item.index')}}">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Item</span>
 						</a>
 					</li>

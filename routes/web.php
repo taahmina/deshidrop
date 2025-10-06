@@ -23,7 +23,7 @@ use App\Http\Controllers\FrontendController  as front;
 use  App\Http\Controllers\CartController;
 use  App\Http\Controllers\CheckoutController;
 use  App\Http\Controllers\CouponController;
-
+use App\Http\Controllers\RiderController;
 
 /* vendor panle */
 use  App\Http\Controllers\Vendor\VendorAuthController;
@@ -65,6 +65,7 @@ Route::middleware('auth:web')->group(function(){
     Route:: resource('category',CategoryController::class);
     Route:: resource('vendor_type',VendorTypeController::class);
     Route:: resource('vendor',VendorController::class);
+    Route:: resource('rider',RiderController::class);
     Route:: resource('item',ItemController::class);
     Route:: resource('tag',TagController::class);
     Route:: resource('item_tag',ItemTagController::class);
@@ -91,7 +92,7 @@ Route::get('vendor_panel/logout',[VendorAuthController::class,'logout'])->name('
 Route::middleware('auth:vendor')->group(function () {
     Route::get('vendor_panel/dashboard',[VendorAuthController::class,'dashboard'])->name('vendor_panel.dashboard');
     Route::resource('vendor_panel/item', VendorItemController::class, ['as'=>'vendor_panel']);
-    Route::resource('vendor_panel/order', VendororderController::class, ['as'=>'vendor_panel']);
+    Route::resource('vendor_panel/order', VendorOrderController::class, ['as'=>'vendor_panel']);
 });
 
 /* rider panel */
@@ -100,6 +101,6 @@ Route::get('rider_panel/login',[RiderAuthController::class,'login'])->name('ride
 Route::post('rider_panel/login',[RiderAuthController::class,'checkLogin'])->name('rider_panel.login');
 Route::get('rider_panel/logout',[RiderAuthController::class,'logout'])->name('rider_panel.logout');
 
-Route::middleware('auth:vendor')->group(function () {
+Route::middleware('auth:rider')->group(function () {
     Route::get('rider_panel/dashboard',[RiderAuthController::class,'dashboard'])->name('rider_panel.dashboard');
 });
