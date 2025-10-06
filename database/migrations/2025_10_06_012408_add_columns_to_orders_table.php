@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-               $table->bigInteger('division_id')->nullable();
-                 $table->bigInteger('district_id')->nullable();
+               //$table->bigInteger('division_id')->nullable();
+               //  $table->bigInteger('district_id')->nullable();
         });
     }
 
