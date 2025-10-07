@@ -286,7 +286,7 @@
 							<li><a href="{{route('coupon.index')}}">Coupon</a></li>
 
 							<li><a href="{{route('order.index')}}">Order item</a></li>
-							<li><a href="{{route('rider.index')}}">Vendors</a></li>
+							<li><a href="{{route('rider.index')}}">Riders</a></li>
 
 
 

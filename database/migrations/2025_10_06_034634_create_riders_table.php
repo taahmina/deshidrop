@@ -17,18 +17,16 @@ return new class extends Migration
                 $table->string('email')->nullable();
                 $table->string('phone')->unique();
                 $table->string('password')->nullable();
-                $table->string('image')->nullable();
+             
                 $table->string('vehicle_type');
                 $table->string('vehicle_number');
                 $table->string('license_number')->nullable();
-                $table->string('license_photo')->nullable();
-                $table->string('national_id')->nullable();
+             
                 $table->string('address')->nullable();
                 $table->bigInteger('division_id')->nullable();
                 $table->bigInteger('district_id')->nullable();
-                $table->string('city')->nullable();
-                $table->string('bank_account')->nullable();
-                $table->string('emergency_contact')->nullable();
+            
+              
                 $table->enum('status', ['pending', 'approved', 'rejected', 'blocked'])->default('pending');
                 $table->timestamps();
         });

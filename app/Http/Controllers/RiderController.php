@@ -1,18 +1,22 @@
 <?php
-
 namespace App\Http\Controllers;
 
+
+use Devfaysal\BangladeshGeocode\Models\Division;
+use Devfaysal\BangladeshGeocode\Models\District;
 use App\Models\Rider;
 use Illuminate\Http\Request;
 
 class RiderController extends Controller
+
 {
+         
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data=Rider::get();
+        $data=Rider::all();
         return view('rider.index',compact('data'));
 
     }
@@ -23,7 +27,12 @@ class RiderController extends Controller
     public function create()
     {
         
-          return view('rider.create');
+        $divisions = Division::all();
+        $districts = District::all();
+        return view('rider.create', compact('divisions','districts'));
+
+
+        
     }
 
     /**
@@ -31,11 +40,25 @@ class RiderController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+
+         $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:riders,email',
+            'phone' => 'required',
+            'password' => 'required|min:6',
+            'address' => 'required',
+            'division_id' => 'required|exists:divisions,id',
+            'district_id' => 'required|exists:districts,id',
+            'vehicle_number' => 'required',
+            'license_number' => 'required',
+            'status' => 'required',
+        ]);
+
         $input = $request->all();
         $input['password']=bcrypt($request->password);
         Rider::create($input);
-        return redirect()->route('rider.index');
+        return redirect()->route('rider.index')->with('success', 'Rider created successfully.');;
     }
 
     /**
@@ -51,7 +74,9 @@ class RiderController extends Controller
      */
     public function edit(Rider $rider)
     {
-          return view('rider.edit',compact('rider'));
+        $divisions = Division::all();
+        $districts = District::all();
+        return view('rider.edit', compact('rider', 'divisions', 'districts'));
     }
 
     /**
@@ -59,16 +84,29 @@ class RiderController extends Controller
      */
     public function update(Request $request, Rider $rider)
     {
-       
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:riders,email,' . $rider->id,
+              'phone' => 'required',
+               'address' => 'required',
+            'division_id' => 'required|exists:divisions,id',
+            'district_id' => 'required|exists:districts,id',
+              'vehicle_number' => 'required',
+                'license_number' => 'required',
+                'status' => 'required',
+        ]);
 
         $input = $request->all();
-        if($request->password && $request->password != "")
-            $input['password']=bcrypt($request->password);
+             if ($request->filled('password')) {
+            $input['password'] = bcrypt($request->password);
+        } else {
+            unset($input['password']); // Don't update password if empty
+        }
 
         $rider->update($input);
-        return redirect()->route('rider.index');
 
-
+        return redirect()->route('rider.index')->with('success', 'Rider updated successfully.');
+      
 
     }
 
@@ -78,6 +116,6 @@ class RiderController extends Controller
     public function destroy(Rider $rider)
     {
          $rider->delete();
-        return redirect()->route('rider.index');
+        return redirect()->route('rider.index')->with('success', 'Rider deleted successfully.');
     }
 }

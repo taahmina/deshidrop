@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('vendors', function (Blueprint $table) {
-            //$table->string('password')->nullable();
-        }); 
+        Schema::table('orders', function (Blueprint $table) {
+                $table->bigInteger('rider_id')->nullable();
+        });
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
-      {
-               Schema::table('vendors', function (Blueprint $table) {
-                //$table->dropColumn('password');
-       });
+    {
+        Schema::table('orders', function (Blueprint $table) {
+                $table->dropColumn('rider_id');
+        });
     }
 };

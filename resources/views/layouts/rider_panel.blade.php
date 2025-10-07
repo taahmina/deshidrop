@@ -176,7 +176,7 @@
 						</a>
 					</li>
 					<li class="">
-						<a href="{{route('rider_panel.item.index')}}">
+						<a href="">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Item</span>
 						</a>
 					</li>

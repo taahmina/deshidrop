@@ -12,7 +12,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+          $data=Customer::get();
+        return view('customer.index',compact('data'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+           return view('customer.create');
     }
 
     /**
@@ -28,7 +29,10 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $input = $request->all();
+        $input['password']=bcrypt($request->password);
+        Customer::create($input);
+        return redirect()->route('customer.index');
     }
 
     /**
@@ -52,7 +56,12 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+         $input = $request->all();
+        if($request->password && $request->password != "")
+            $input['password']=bcrypt($request->password);
+
+        $customer->update($input);
+        return redirect()->route('customer.index');
     }
 
     /**
@@ -60,6 +69,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+         $customer->delete();
+        return redirect()->route('customer.index');
     }
 }

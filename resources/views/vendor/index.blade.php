@@ -24,6 +24,7 @@
 					<th scope="col">Address</th>
 					<th scope="col">Phone</th>
 					<th scope="col">Email</th>
+					<th scope="col">Password</th>
 					<th scope="col">Latitude</th>
 					<th scope="col">Longitude</th>
 					<th scope="col">Opening_time</th>
@@ -42,6 +43,7 @@
 						<td>{{$d->address}}</td>
 						<td>{{$d->phone}}</td>
 						<td>{{$d->email}}</td>
+						<td>{{$d->password}}</td>
 						<td>{{$d->latitude}}</td>
 						<td>{{$d->longitude}}</td>
 						<td>{{$d->opening_time}}</td>
