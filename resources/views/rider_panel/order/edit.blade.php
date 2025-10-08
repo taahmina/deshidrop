@@ -7,7 +7,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('order.update',$order->id)}}" method="post" class="update-form">
+                <form action="{{route('order.edit',$order->id)}}" method="post" class="update-form">
                     @csrf
                     @method('PATCH')
                     <h2>Update Order</h2>
@@ -26,21 +26,11 @@
                         <label>Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="">--Select Status--</option>
-                            <option value="pending" {{$order->status=='pending'?'selected':''}}>Pending</option>
-                            <option value="processing" {{$order->status=='processing'?'selected':''}}>Processing</option>
-                            <option value="completed" {{$order->status=='completed'?'selected':''}}>Completed</option>
-                            <option value="cancelled" {{$order->status=='cancelled'?'selected':''}}>Cancelled</option>
+                            <option value="on_the_way" {{$order->status=='on_the_way'?'selected':''}}>on_the_way</option>
+                            <option value="delivered" {{$order->status=='delivered'?'selected':''}}>delivered</option>
+                            <option value="failed" {{$order->status=='completed'?'failed':''}}>failed</option>
                         </select>
                     </div>
-
-                          <div class="form-group">
-									<label for="rider_id">Rider</label>
-								     <input type="text" name="rider_id" id="rider_id"  class="form-control">		
-								</div>
-							</div>
-
-							
-
 
                     <button type="submit">Update</button>
                 </form>

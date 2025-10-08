@@ -25,12 +25,14 @@ use  App\Http\Controllers\CheckoutController;
 use  App\Http\Controllers\CouponController;
 use App\Http\Controllers\RiderController;
 
+
 /* vendor panle */
 use  App\Http\Controllers\Vendor\VendorAuthController;
 use  App\Http\Controllers\Vendor\VendorItemController;
 
 /* rider panle */
 use  App\Http\Controllers\Rider\RiderAuthController;
+use App\Http\Controllers\Rider\RiderOrderController;
 
 
 
@@ -74,7 +76,7 @@ Route::middleware('auth:web')->group(function(){
     Route:: resource('order',OrderController::class);
     Route:: resource('review',ReviewController::class);
     Route:: resource('gpslog',GpsLogController::class);
-    Route:: resource('delivary_people',DelivaryPersonController::class);
+  
     Route:: resource('delivary_zone',DelivaryZoneController::class);
     Route:: resource('delivary_rule',DelivaryRuleController::class);
     Route:: resource('delivary_rule',OrderItemController::class);
@@ -103,4 +105,5 @@ Route::get('rider_panel/logout',[RiderAuthController::class,'logout'])->name('ri
 
 Route::middleware('auth:rider')->group(function () {
     Route::get('rider_panel/dashboard',[RiderAuthController::class,'dashboard'])->name('rider_panel.dashboard');
+    Route::resource('rider_panel/order', RiderOrderController::class,['as'=>'rider_panel']);
 });

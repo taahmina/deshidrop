@@ -247,16 +247,6 @@
                     </tfoot>
                 </table>
 
-                 <table class="Rider-info">
-                       
-                    <tr>
-                            <td><strong>Rider :</strong></td>
-                            <td>{{ $order->rider?->name }}</td>
-                        </tr>
-
-                      </table>
-
-
             </div>
         </div>
     </div>

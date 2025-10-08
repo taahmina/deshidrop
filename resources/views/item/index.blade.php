@@ -30,6 +30,7 @@
 					<th scope="col">Image</th>
 					<th scope="col">Is_Featured</th>
 					<th scope="col">Is_Active</th>
+					<th scope="col">Rider</th>
 					<th scope="col">Action</th>
 				</tr>
 			</thead>
@@ -49,6 +50,7 @@
 						<td><img width="80px" src="{{asset('uploads/'.$d->image)}}" alt=""></td>
 						<td>{{$d->is_featured}}</td>
 						<td>{{$d->is_active}}</td>
+					
 
 						<td>
 							<ul class="d-flex ">

@@ -15,32 +15,30 @@
 		<table class="table">
 			<thead class="table-info">
                 <tr>
-                    <th>#</th>
-                    <th>Customer</th>
-                    <th>Total Price</th>
-                    <th>Discount</th>
-                    <th>Final Price</th>
-					<th>Rider</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    	<th scope="col">#SL</th>
+					<th scope="col">Order_id</th>
+					<th scope="col">Customer_id</th>
+					<th scope="col">Customer_Address</th>
+                    <th scope="col">Status</th>
+					<th scope="col">Total Price</th>	
+					<th scope="col">Action</th>
+                 
                 </tr>
             </thead>
             <tbody>
 					 @forelse($data as $d)
 				<tr>
                      <td scope="row">{{ $loop->iteration }}</td>
-                        <td>{{ $d->customer?->name}}</td>
-                        <td>{{ $d->total_price }}</td>
-                        <td>{{ $d->discount_amount }}</td>
-                        <td>{{ $d->final_price }}</td>
-						<td>{{$d->rider}}</td>
-                        <td>{{ $d->status }}</td>
+                      <td>{{$d->order_id?->name}}</td>
+                        <td>{{$d->customer_id?->name}}</td>
+						<td>{{$d->total_price}}</td>
+						<td>{{$d->status}}</td>
 					<td>
 
                             
 							<ul class="d-flex ">
 							
-								<li class="mr-3"><a href="{{route('order.show',$d->id)}}" class="btn btn-link">Invoice</a></li>
+								<li class="mr-3"><a href="{{route('order.show',$d->id)}}" class="btn btn-link">View</a></li>
 								<li>
                                     <li class="mr-3"><a href="{{route('order.edit',$d->id)}}" class="btn btn-link"><i class="fa fa-edit"></i></a></li>
 								<li>

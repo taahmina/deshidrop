@@ -176,8 +176,13 @@
 						</a>
 					</li>
 					<li class="">
+						<a href="{{route('rider_panel.order.index')}}">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Order</span>
+						</a>
+					</li>
+					<li class="">
 						<a href="">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Item</span>
+							<span class="micon dw dw-house-1"></span><span class="mtext">Profile</span>
 						</a>
 					</li>
 				</ul>
@@ -196,7 +201,7 @@
 						</div>
 						<nav aria-label="breadcrumb" role="navigation">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+								<li class="breadcrumb-item"><a href="{{route('rider_panel.dashboard')}}">Home</a></li>
 								<li class="breadcrumb-item"><span>@yield('page_title')</span></li>
 
 							</ol>
