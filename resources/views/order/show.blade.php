@@ -234,7 +234,7 @@
                     <tfoot>
                         <tr>
                             <th colspan="4" style="text-align:right">Total Price:</th>
-                            <th>{{ $order->total_price }}</th>
+                            <th>{{ $order->total_amount }}</th>
                         </tr>
                         <tr>
                             <th colspan="4" style="text-align:right">Discount Amount:</th>

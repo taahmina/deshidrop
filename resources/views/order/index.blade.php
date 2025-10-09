@@ -30,7 +30,7 @@
 				<tr>
                      <td scope="row">{{ $loop->iteration }}</td>
                         <td>{{ $d->customer?->name}}</td>
-                        <td>{{ $d->total_price }}</td>
+                        <td>{{ $d->total_amount }}</td>
                         <td>{{ $d->discount_amount }}</td>
                         <td>{{ $d->final_price }}</td>
 						<td>{{$d->rider}}</td>

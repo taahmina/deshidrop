@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class GpsLog extends Model
 {
     use HasFactory;
-     protected $fillable = ['order_id','delivery_person_id','latitude','longitude','recorded_at'];
+     protected $fillable = ['order_id','rider_id','latitude','longitude','recorded_at'];
 }

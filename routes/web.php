@@ -12,7 +12,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\GpsLogController;
-use App\Http\Controllers\DelivaryPersonController;
+
 use App\Http\Controllers\DelivaryZoneController;
 use App\Http\Controllers\DelivaryRuleController;
 use App\Http\Controllers\OrderItemController;
@@ -33,6 +33,14 @@ use  App\Http\Controllers\Vendor\VendorItemController;
 /* rider panle */
 use  App\Http\Controllers\Rider\RiderAuthController;
 use App\Http\Controllers\Rider\RiderOrderController;
+
+/*Customer panel*/
+use App\Http\Controllers\Customer\CustomerRegisterController;
+use App\Http\Controllers\Customer\CustomerLoginController;
+use App\Http\Controllers\CustomerDashboardController;
+//use App\Http\Controllers\CustomerOrderController;
+//use App\Http\Controllers\CustomerProfileController;
+
 
 
 
@@ -106,4 +114,37 @@ Route::get('rider_panel/logout',[RiderAuthController::class,'logout'])->name('ri
 Route::middleware('auth:rider')->group(function () {
     Route::get('rider_panel/dashboard',[RiderAuthController::class,'dashboard'])->name('rider_panel.dashboard');
     Route::resource('rider_panel/order', RiderOrderController::class,['as'=>'rider_panel']);
+});
+
+
+
+
+/*Customer panel*/
+
+// Customer Authentication Routes
+Route::prefix('customer')->group(function () {
+    // Registration
+    Route::get('/register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('customer.register');
+    Route::post('/register', [CustomerRegisterController::class, 'register']);
+    
+    // Login
+    Route::get('/login', [CustomerLoginController::class, 'showLoginForm'])->name('customer.login');
+    Route::post('/login', [CustomerLoginController::class, 'login']);
+    
+    // Logout
+    Route::post('/logout', [CustomerLoginController::class, 'logout'])->name('customer.logout');
+});
+
+// Customer Protected Routes
+Route::middleware(['auth:customer'])->prefix('customer')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    
+    // Profile
+   // Route::get('/profile', [CustomerProfileController::class, 'show'])->name('customer.profile');
+    //Route::put('/profile', [CustomerProfileController::class, 'update'])->name('customer.profile.update');
+    
+    // Orders
+    //Route::get('/orders', [CustomerOrderController::class, 'index'])->name('customer.orders');
+   // Route::get('/orders/{id}', [CustomerOrderController::class, 'show'])->name('customer.orders.show');
 });

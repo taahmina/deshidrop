@@ -63,7 +63,7 @@ class CheckoutController extends Controller
         }
         $order=new Order();
         $order->user_id=$customer->id;
-        $order->total_price=array_sum(array_map(function($item) {
+        $order->total_amount=array_sum(array_map(function($item) {
             return $item['price'] * $item['quantity'];
         }, $cart));
         if(Session::has('coupon')) {
@@ -73,7 +73,7 @@ class CheckoutController extends Controller
         }else{
             $order->coupon_id=null;
             $order->discount_amount=0;
-            $order->final_price=$order->total_price;
+            $order->final_price=$order->total_amount;
         }
         $order->notes=$request->notes;
         $order->division_id=$request->division_id;

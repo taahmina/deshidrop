@@ -21,7 +21,7 @@
 </head>
 <body itemscope>
     <main>
-        <
+        
 
         <header class="stick">
             <div class="topbar">
@@ -46,8 +46,8 @@
                     </div>
                     <div class="topbar-register">
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
-                        <a href="{{route('vendor_panel.login')}}" title="Login">Vendor LOGIN</a>
-                         <a href="{{route('rider_panel.login')}}" title="Login">Rider LOGIN</a>
+                        <a href="{{ route('customer.logout') }}" >Customer logout</a>
+                
                     </div>
                     <div class="social1">
                         <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
