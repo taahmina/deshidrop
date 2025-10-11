@@ -115,7 +115,7 @@
                     <i class="fas fa-shopping-bag fa-3x text-muted mb-3"></i>
                     <h5 class="text-muted"></h5>
                     <p class="text-muted"></p>
-                    <a href="{{ route('welcome') }}" class="btn btn-primary">Order Now</a>
+                    <a href="{{ route('home') }}" class="btn btn-primary">Back to Home</a>
                 </div>
                 @endif
             </div>

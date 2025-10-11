@@ -109,7 +109,7 @@
             </div>
 
             <div class="auth-body">
-                <form method="POST" action="{{ route('customer.register') }}" id="registrationForm">
+                <form method="POST" action="{{ route('customer_panel.register') }}" id="registrationForm">
                     @csrf
 
                     <!-- Name Field -->
@@ -157,7 +157,7 @@
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" 
                                    name="phone" value="{{ old('phone') }}" required autocomplete="phone"
-                                   placeholder="01XXXXXXXXX" pattern="01[3-9]\d{8}">
+                                   placeholder="01XXXXXXXXX">
                         </div>
                         <small class="form-text text-muted">Bangladeshi mobile number format (01XXXXXXXXX)</small>
                         @error('phone')
@@ -243,7 +243,7 @@
                     <!-- Login Link -->
                     <div class="text-center">
                         <p class="mb-0">Already have an account?
-                            <a href="{{ route('customer.login') }}" class="login-link">
+                            <a href="{{ route('customer_panel.login') }}" class="login-link">
                                 <i class="fas fa-sign-in-alt me-1"></i>Sign In
                             </a>
                         </p>

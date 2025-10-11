@@ -26,6 +26,13 @@ use  App\Http\Controllers\CouponController;
 use App\Http\Controllers\RiderController;
 
 
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+
+
+
 /* vendor panle */
 use  App\Http\Controllers\Vendor\VendorAuthController;
 use  App\Http\Controllers\Vendor\VendorItemController;
@@ -37,7 +44,7 @@ use App\Http\Controllers\Rider\RiderOrderController;
 /*Customer panel*/
 use App\Http\Controllers\Customer\CustomerRegisterController;
 use App\Http\Controllers\Customer\CustomerLoginController;
-use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\Customer\CustomerDashboardController;
 //use App\Http\Controllers\CustomerOrderController;
 //use App\Http\Controllers\CustomerProfileController;
 
@@ -124,21 +131,21 @@ Route::middleware('auth:rider')->group(function () {
 // Customer Authentication Routes
 Route::prefix('customer')->group(function () {
     // Registration
-    Route::get('/register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('customer.register');
-    Route::post('/register', [CustomerRegisterController::class, 'register']);
+    Route::get('/customer_panel/register', [CustomerRegisterController::class, 'showRegistrationForm'])->name('customer_panel.register');
+    Route::post('/customer_panel/register', [CustomerRegisterController::class, 'register'])->name('customer_panel.register');
     
     // Login
-    Route::get('/login', [CustomerLoginController::class, 'showLoginForm'])->name('customer.login');
-    Route::post('/login', [CustomerLoginController::class, 'login']);
+    Route::get('/customer_panel/login', [CustomerLoginController::class, 'showLoginForm'])->name('customer_panel.login');
+    Route::post('/customer_panel/login', [CustomerLoginController::class, 'login'])->name('customer_panel.login');
     
     // Logout
-    Route::post('/logout', [CustomerLoginController::class, 'logout'])->name('customer.logout');
+    Route::post('/customer_panel/logout', [CustomerLoginController::class, 'logout'])->name('customer_panel.logout');
 });
 
 // Customer Protected Routes
-Route::middleware(['auth:customer'])->prefix('customer')->group(function () {
+Route::middleware(['auth:customer'])->group(function () {
     // Dashboard
-    Route::get('/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
+    Route::get('/customer_panel/dashboard', [CustomerDashboardController::class, 'customerdash'])->name('customer_panel.dashboard');
     
     // Profile
    // Route::get('/profile', [CustomerProfileController::class, 'show'])->name('customer.profile');

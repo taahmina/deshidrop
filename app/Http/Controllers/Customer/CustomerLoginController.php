@@ -10,7 +10,7 @@ class CustomerLoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/customer/dashboard';
+    protected $redirectTo = '/customer_panel/dashboard';
 
     public function __construct()
     {
@@ -48,12 +48,14 @@ class CustomerLoginController extends Controller
         ]);
     }
 
-    public function logout(Request $request)
-    {
-        $this->guard()->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+   
+       public function logout(Request $request)
+{
+            Auth::guard('customer')->logout();
 
-        return redirect('/customer/login')->with('success', 'You have been logged out successfully.');
-    }
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect('/')->with('success', 'Logged out successfully!');
 }
+    }

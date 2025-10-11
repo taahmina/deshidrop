@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
+
 class CustomerRegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/customer/dashboard';
+    protected $redirectTo = '/customer_panel/dashboard';
 
     public function __construct()
     {
@@ -50,4 +51,8 @@ class CustomerRegisterController extends Controller
     {
         return auth()->guard('customer');
     }
+
+    
+
+
 }

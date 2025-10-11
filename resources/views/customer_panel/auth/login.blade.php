@@ -106,7 +106,7 @@
             </div>
 
             <div class="auth-body">
-                <form method="POST" action="{{ route('customer.login') }}" id="loginForm">
+                <form method="POST" action="{{ route('customer_panel.login') }}" id="loginForm">
                     @csrf
 
                     <!-- Login Field (Email or Phone) -->
@@ -148,21 +148,6 @@
                         @enderror
                     </div>
 
-                    <!-- Remember Me & Forgot Password -->
-                            <!--  <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember">
-                                Remember Me
-                            </label>
-                        </div>
-                        <div>
-                    <div class="mb-3 d-flex justify-content-between align-items-center">
-                            <a href="{{ route('customer.password.request') }}" class="forgot-password">
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </div>-->
-
                     {{-- Replace with this simpler version: --}}
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -179,21 +164,11 @@
                         </button>
                     </div>
 
-                    <!-- Demo Account Info (Optional) -->
-                    <div class="alert alert-info" role="alert">
-                        <small>
-                            <i class="fas fa-info-circle me-2"></i>
-                            <strong>Demo Account:</strong><br>
-                            Email: demo@example.com<br>
-                            Phone: 01700000000<br>
-                            Password: password
-                        </small>
-                    </div>
-
+                   
                     <!-- Register Link -->
                     <div class="text-center">
                         <p class="mb-0">Don't have an account?
-                            <a href="{{ route('customer.register') }}" class="register-link">
+                            <a href="{{ route('customer_panel.register') }}" class="register-link">
                                 <i class="fas fa-user-plus me-1"></i>Create Account
                             </a>
                         </p>

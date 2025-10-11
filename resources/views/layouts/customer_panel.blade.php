@@ -45,9 +45,15 @@
                         </select>
                     </div>
                     <div class="topbar-register">
-                        <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
-                        <a href="{{ route('customer.logout') }}" >Customer logout</a>
-                
+        
+                    <form method="POST" action="{{ route('customer_panel.logout') }}" class="d-inline">
+                        @csrf
+                        <button type="submit" class="logout-btn" style="background: none; border: none; color: inherit; cursor: pointer;">Customer logout</button>
+                    </form>
+                                            
+
+
+
                     </div>
                     <div class="social1">
                         <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
