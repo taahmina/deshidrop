@@ -26,9 +26,7 @@ use  App\Http\Controllers\CouponController;
 use App\Http\Controllers\RiderController;
 
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+
 
 
 
