@@ -22,4 +22,8 @@ class Order extends Model
     {
         return $this->belongsTo(Coupon::class);
     }
+    public function Rider()
+    {
+        return $this->belongsTo(Rider::class);
+    }
 }

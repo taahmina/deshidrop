@@ -33,11 +33,19 @@
                         </select>
                     </div>
 
-                          <div class="form-group">
-									<label for="rider_id">Rider</label>
-								     <input type="text" name="rider_id" id="rider_id"  class="form-control">		
-								</div>
-							</div>
+                          
+                                <div class="form-group">
+                                        <label for="rider_id">Rider</label>
+                                        <select name="rider_id" id="rider_id" class="form-control">
+                                            <option value="">--Select Rider--</option>
+                                            @foreach($rider as $r)
+                                                <option value="{{ $r->id }}" 
+                                                    {{ $order->rider_id == $r->id ? 'selected' : '' }}>{{ $r->name }} 
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+						
 
 							
 

@@ -17,4 +17,11 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Item::class,'product_id');
     }
+
+    public function rider()
+    {
+        return $this->belongsTo(Rider::class,'rider_id');
+    }
+
+
 }

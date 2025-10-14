@@ -33,7 +33,7 @@
                         <td>{{ $d->total_amount }}</td>
                         <td>{{ $d->discount_amount }}</td>
                         <td>{{ $d->final_price }}</td>
-						<td>{{$d->rider}}</td>
+						<td>{{$d->rider?->name}}</td>
                         <td>{{ $d->status }}</td>
 					<td>
 

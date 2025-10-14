@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Customer;
+use App\Models\Rider;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,10 @@ class OrderController extends Controller
           $data=Order::get();
         return view('order.index',compact('data'));
     }
+
+
+    
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,7 +56,8 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
          $customer=Customer::get();
-         return view('order.edit',compact('order','customer'));
+           $rider =Rider::get();
+         return view('order.edit',compact('order','customer','rider'));
     }
 
     /**

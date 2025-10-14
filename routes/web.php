@@ -96,6 +96,11 @@ Route::middleware('auth:web')->group(function(){
     Route:: resource('payment',PaymentController::class);
     Route:: resource('transaction',TransactionController::class);
     Route:: resource('notification',NotificationController::class);
+
+
+
+   
+
 });
 Auth::routes();
 
