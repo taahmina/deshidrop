@@ -1,6 +1,6 @@
 
 
-@extends('layouts.rider_panel')
+@extends('layouts.customer_panel')
 @section('page_title',"Invoice")
 @section('content')
 
@@ -118,9 +118,9 @@
         display: none; /* hide table headers */
     }
 
-    .table, 
-    .table tbody, 
-    .table tr, 
+    .table,
+    .table tbody,
+    .table tr,
     .table td {
         display: block;
         width: 100%;
@@ -203,7 +203,7 @@
 
 
 
-                
+
                 <p>Status: {{$order->status}}</p>
 
                 <table class="table">

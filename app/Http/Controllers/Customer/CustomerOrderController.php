@@ -15,8 +15,8 @@ class CustomerOrderController extends Controller
      */
     public function index()
     {
-        $customerId = auth()->guard('rider')->id();
-        $order=Order::where('customer_id',$customerId)->get();
+        $customerId = auth()->guard('customer')->id();
+        $order=Order::where('user_id',$customerId)->get();
         return view('customer_panel.order.index',compact('order'));
     }
 
@@ -28,7 +28,7 @@ class CustomerOrderController extends Controller
         $customer=Customer::get();
         return view('customer_panel.order.create',compact('customer'));
     }
-   
+
 
     /**
      * Store a newly created resource in storage.
@@ -72,5 +72,5 @@ class CustomerOrderController extends Controller
     {
             $order->delete();
        return redirect()->route('customer_panel.order.index');
-    } 
+    }
 }

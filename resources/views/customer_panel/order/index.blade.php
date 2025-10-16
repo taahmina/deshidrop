@@ -20,40 +20,51 @@
 					<th scope="col">Quantity</th>
 					<th scope="col"> Price</th>
 					<th scope="col">Total Price</th>
-					 <th scope="col">Status</th>	
+					 <th scope="col">Status</th>
 					<th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse($order as $i)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>
+                        @if($i->orderItems)
+                            @foreach($i->orderItems as $item)
+                                {{ $item->item?->name }}<br>
+                            @endforeach
+                        @endif
+                    </td>
+                    <td>@if($i->orderItems)
+                            @foreach($i->orderItems as $item)
+                                {{ $item->quantity }}<br>
+                            @endforeach
+                        @endif</td>
+                    <td>@if($i->orderItems)
+                            @foreach($i->orderItems as $item)
+                                {{ $item->unit_price }}<br>
+                            @endforeach
+                        @endif</td>
+                    <td>
+                        @if($i->orderItems)
+                            @foreach($i->orderItems as $item)
+                                {{ $item->line_total }}<br>
+                            @endforeach
+                        @endif
+                    </td>
 
-				 @forelse($order as $i)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $i->orderItems?->pluck() }}</td>
-                                <td>{{ $i->quantity }}</td>
-                                <td>{{ $i->unit_price }}</td>
-                                <td>{{ $i->line_total }}</td>
-                            
-					 
+
 					<td>
-						  
-                            
-							<ul class="d-flex ">
-							
-								<li class="mr-3"><a href="{{route('rider_panel.order.show',$i->id)}}" class="btn btn-link">View</a></li>
-								<li>
-                                    <li class="mr-3"><a href="{{route('rider_panel.order.edit',$i->id)}}" class="btn btn-link"><i class="fa fa-edit"></i></a></li>
-								<li>
-									<form method="post" action="{{route('rider_panel.order.destroy',$i->id)}}">
-										@csrf
-										@method('delete')
-										<button type="submit" class="btn btn-link"><i class="ti-trash"></i></button>
-									</form>
-								</li>
-							</ul>
-						</td>
-						
-					</tr>
+                        <a href="{{route('customer_panel.order.show',$i->id)}}" class="btn btn-link">View</a>
+
+                        <form method="post" action="{{route('customer_panel.order.destroy',$i->id)}}">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        </form>
+
+					</td>
+                </tr>
 				@empty
 					<tr>
 						<td>No Data Found</td>
