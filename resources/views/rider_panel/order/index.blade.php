@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.rider_panel')
 @section('page_title',"Order Add")
 @section('content')
 
@@ -8,14 +8,14 @@
 			<h4 class="text-blue h4">Order Item</h4>
 		</div>
 		<div class="pull-right">
-			<a href="{{route('order.create')}}" class="btn btn-primary btn-sm scroll-click" > Add new</a>
+			<a href="" class="btn btn-primary btn-sm scroll-click" > Add new</a>
 		</div>
 	</div>
 	<div class="table-responsive">
 		<table class="table">
 			<thead class="table-info">
                 <tr>
-                    	<th scope="col">#SL</th>
+                    <th scope="col">#SL</th>
 					<th scope="col">Order_id</th>
 					<th scope="col">Customer_id</th>
 					<th scope="col">Customer_Address</th>
@@ -29,20 +29,21 @@
 					 @forelse($data as $d)
 				<tr>
                      <td scope="row">{{ $loop->iteration }}</td>
-                      <td>{{$d->order_id?->name}}</td>
-                        <td>{{$d->customer_id?->name}}</td>
-						<td>{{$d->total_price}}</td>
+                      <td>{{$d->order_id}}</td>
+                        <td>{{$d->customer?->name}}</td>
+						<td>{{$d->customer?->address}}</td>
 						<td>{{$d->status}}</td>
+						<td>{{$d->total_price}}</td>
 					<td>
 
                             
 							<ul class="d-flex ">
 							
-								<li class="mr-3"><a href="{{route('order.show',$d->id)}}" class="btn btn-link">View</a></li>
+								<li class="mr-3"><a href="{{route('rider_panel.order.show',$d->id)}}" class="btn btn-link">View</a></li>
 								<li>
-                                    <li class="mr-3"><a href="{{route('order.edit',$d->id)}}" class="btn btn-link"><i class="fa fa-edit"></i></a></li>
+                                    <li class="mr-3"><a href="{{route('rider_panel.order.edit',$d->id)}}" class="btn btn-link"><i class="fa fa-edit"></i></a></li>
 								<li>
-									<form method="post" action="{{route('order.destroy',$d->id)}}">
+									<form method="post" action="{{route('rider_panel.order.destroy',$d->id)}}">
 										@csrf
 										@method('delete')
 										<button type="submit" class="btn btn-link"><i class="ti-trash"></i></button>

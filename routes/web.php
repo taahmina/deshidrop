@@ -31,6 +31,7 @@ use App\Http\Controllers\RiderController;
 
 
 
+
 /* vendor panle */
 use  App\Http\Controllers\Vendor\VendorAuthController;
 use  App\Http\Controllers\Vendor\VendorItemController;
@@ -43,7 +44,7 @@ use App\Http\Controllers\Rider\RiderOrderController;
 use App\Http\Controllers\Customer\CustomerRegisterController;
 use App\Http\Controllers\Customer\CustomerLoginController;
 use App\Http\Controllers\Customer\CustomerDashboardController;
-//use App\Http\Controllers\CustomerOrderController;
+use App\Http\Controllers\Customer\CustomerOrderController;
 //use App\Http\Controllers\CustomerProfileController;
 
 
@@ -149,6 +150,7 @@ Route::prefix('customer')->group(function () {
 Route::middleware(['auth:customer'])->group(function () {
     // Dashboard
     Route::get('/customer_panel/dashboard', [CustomerDashboardController::class, 'customerdash'])->name('customer_panel.dashboard');
+    Route::resource('/customer_panel/order', CustomerOrderController::class, ['as' => 'customer_panel']);
     
     // Profile
    // Route::get('/profile', [CustomerProfileController::class, 'show'])->name('customer.profile');

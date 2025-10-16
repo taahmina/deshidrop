@@ -22,6 +22,6 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Rider::class,'rider_id');
     }
-
+   
 
 }

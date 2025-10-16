@@ -160,14 +160,15 @@
 
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="{{route('dashboard')}}">
+			<a href="{{route('rider_panel.dashboard')}}">
 				<img src="{{asset('backendassets/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
 			</div>
 		</div>
-		<div class="menu-block customscroll">
+
+<div class="menu-block customscroll">
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="">
@@ -175,19 +176,28 @@
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
-					<li class="">
-						<a href="{{route('rider_panel.order.index')}}">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Order</span>
+
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw dw-settings2"></span><span class="mtext">Settings Type</span>
 						</a>
+						<ul class="submenu">
+						
+                       <li><a href="{{route('rider_panel.order.index')}}">Order</a></li>
+							
+						
+						</ul>
+
 					</li>
-					<li class="">
-						<a href="">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Profile</span>
-						</a>
-					</li>
+
 				</ul>
 			</div>
 		</div>
+
+
+
+
+	
 	</div>
 	<div class="mobile-menu-overlay"></div>
 

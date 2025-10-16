@@ -7,7 +7,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('rider_panel.order.update',$order->id)}}" method="post" class="update-form">
+                <form action="{{route('customer_panel.order.update',$order->id)}}" method="post" class="update-form">
                     @csrf
                     @method('PATCH')
                     <h2>Update Order</h2>
