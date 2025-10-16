@@ -137,16 +137,14 @@
 
 
 
-                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url"><span class="red-clr">FOOD ORDERING</span>SHOPS</a>
-                                    <ul class="sub-dropdown">
-                                        <li><a href="index-2.html" title="HOMEPAGE 1" itemprop="url">HOMEPAGE 1</a></li>
-                                        <li><a href="index2.html" title="HOMEPAGE 2" itemprop="url">HOMEPAGE 2</a></li>
-                                    </ul>
-                                </li>
+                                 
                                <li class="menu-item-has-children"><a href="{{route('cart.view')}}"  title="CART" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Cart</a>
                                 </li>
                                 <li class="menu-item-has-children"><a href="{{route('checkout')}}"  title="CHECKOUT" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Checkout</a>
                                 </li>
+                                <li class="menu-item-has-children"><a href="{{route('customer_panel.order.index')}}"  title="CHECKOUT" itemprop="url"><span class="red-clr">FOOD ORDERING</span>Order</a>
+                                </li>
+
 
                             </ul>
 
